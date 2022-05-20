@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Easy Polling</title>
+
+    </head>
+    <body>
+
+        <h1>Multi-user polling app</h1>
+        <div class="server-info">
+            <label for="server-port">server port</label><br />
+            <input type="text" name="server-port" id="serverport" placeholder="default:10000"></input><br />
+            <label for="server-address">server address</label><br />
+            <input type="text" name="server-address" id="serveraddress" placeholder="default: localhost"></input>
+            <button type="button" onclick="updateServerConfig(serveraddress.value, serverport.value)">
+                Update Info</button><br />
+            <div id=server>
+
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <div class="password">
+                <h2>To enable admin operation, enter password first</h2>
+
+                <label for="pwd">Password:(default:cit595)</label><br>
+                <input type="password" id="pwd" name="pwd" placeholder="enter password">
+                <button type="button" onclick="updatePassword(pwd.value)">
+                    Set password</button><br />
+                <div id=setpw>
+
+                </div>
+            </div>
+
+            <div class="admin-operation">
+
+
+                <button type="submit" onclick="startElection()">
+                    Click me to start a new election</button><br />
+
+                <div id=start>
+
+                </div>
+
+                <label for="add-candidate">Add a new candidate</label><br />
+                <input type="text" name="addcandidate" id="addcandidate" placeholder="candidate name">
+                <button type="button" onclick="addCandidate(addcandidate.value)">
+                    Submit</button><br />
+                <div id=addCan>
+
+                </div>
+                <button type="button" onclick="shutdownServer()">
+                    Click me to shutdown the server</button><br />
+                <div id=shut>
+
+                </div>
+                <button type="button" onclick="endElection()">
+                    Click me to end the current election</button><br />
+                <div id=end>
+
+                </div>
+            </div>
+
+            <div class="voters-operation">
+                <h2>Voter operation</h2>
+
+                <label for="add-voter">Add a new voter</label><br />
+                <input type="text" name="add-voter" id="avvid" placeholder="voter id">
+                <button type="button" onclick="addVoter(avvid.value)">
+                    Add</button><br />
+                <div id=addvoter>
+
+                </div>
+
+                <label for="vote-for">vote for candidate</label><br />
+                <input type="text" name="vote-for" id="vfcname" placeholder="candidate name">
+                <input type="text" name="vote-for" id="vfvid" placeholder="voter id">
+                <button type="submit" onclick="voteFor(vfcname.value, vfvid.value)">
+                    Submit</button><br />
+                <div id=votefor>
+
+                </div>
+                <div id=voteforError>
+
+                </div>
+
+
+                <label for="check-voter">Check registration status</label><br />
+                <input type="text" name="check-voter" id="crvid" placeholder="voter id">
+                <button type="button" onclick="checkRegStatus(crvid.value)">
+                    Check</button><br />
+                <div id=checkreg>
+
+                </div>
+
+
+                <label for="check-status">Check voter status</label><br />
+                <input type="text" name="check-status" id="cvvid" placeholder="voter id">
+                <input type="text" name="check-status" id="mgcnm" placeholder="magic number">
+                <button type="button" onclick="checkVoterStatus(cvvid.value, mgcnm.value)">
+                    Check</button><br />
+                <div id=checkvoter>
+
+                </div>
+            </div>
+
+            <div class="view-data">
+                <h2>View data</h2>
+
+                <label for="vote-count">vote count</label><br />
+                <input type="text" name="vote-count" id="voteCountcname" placeholder="candidate name">
+                <button type="button" onclick="voteCount(voteCountcname.value)">
+                    Show count</button><br />
+                <div id=votecount>
+
+                </div>
+                <button type="button" onclick="viewCandidates()">
+                    Click me to view candidates in this election</button><br />
+                <div id=listcan>
+
+                </div>
+                <button type="button" onclick="viewResult()">
+                    Click me to view final result</button><br />
+                <div id=viewresult>
+
+                </div>
+            </div>
+
+        </div>
+
+        <script src="clientScript.js"></script>
+    </body>
+</html>
